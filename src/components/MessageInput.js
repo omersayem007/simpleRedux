@@ -12,11 +12,6 @@ class MessageInput extends Component {
           }
     }
 
-    createRedux = () =>{
-        const store = this.props.store;
-        return store;
-      }
-
     handleInput = (event) =>{
 
         event.preventDefault();
@@ -24,11 +19,10 @@ class MessageInput extends Component {
     }
     
     handleSubmit = () =>{
-        const store = this.createRedux();
-       const {message} = this.state;
+        const store = this.props.store;
         store.dispatch({
             type:'AddMessage',
-            message
+            message:this.state.message
         });
         this.setState({message:''})
     }

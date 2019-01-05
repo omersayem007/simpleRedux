@@ -46,8 +46,9 @@ function createStore(reducer,initialState) {
   
     }
   }
+
   
-  let initialState={messages:["hello","how are you ?"]}
+  let initialState={messages:[]}
   
   
   const redux  = { createStore , reducer , initialState} ;
