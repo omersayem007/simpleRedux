@@ -4,8 +4,6 @@ import MessageInput from './components/MessageInput';
 import Redux from './redux/Redux';
 const Store = Redux.createStore(Redux.reducer,Redux.initialState);
 
-hey
-
 class App extends Component {
 
  componentDidMount (){
