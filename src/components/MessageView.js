@@ -3,20 +3,21 @@ import React from 'react';
 
 class MessageView extends React.Component {
 
-    handledelete = (index) =>{
+    handledelete = (id) =>{
         const store = this.props.store;
         store.dispatch({
             type:"DeleteMessage",
-            index
+            id
         })
     }
 
   render() {
       const messages = this.props.messages.map((message,index)=>(
-          <div key={index}>
+          <div key={message.id}>
           <p> 
-          {message}
-          <button onClick={() =>this.handledelete(index)}>Delete</button>
+          {message.text}
+          <span>@{message.time}</span>
+          <button onClick={() =>this.handledelete(message.id)}>Delete</button>
            </p>
           
           </div>

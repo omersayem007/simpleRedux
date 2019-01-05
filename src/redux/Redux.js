@@ -4,16 +4,19 @@ import {createStore} from 'redux';
   
   
     if( action.type === "AddMessage" ){
+
+        let newMessage = {
+            id:action.id,
+            time:action.time,
+            text:action.message
+        }
   
-        return {messages : state.messages.concat(action.message)};
+        return {messages : state.messages.concat(newMessage)};
   
     }
     else if( action.type === "DeleteMessage" ){
         return {
-            messages: [
-                ...state.messages.slice(0, action.index),
-                ...state.messages.slice(action.index+1, state.messages.length), 
-            ]
+            messages: state.messages.filter((message) => message.id !== action.id )
         }
     }
     else {
@@ -24,7 +27,30 @@ import {createStore} from 'redux';
   }
 
   
-  let initialState={messages:[]}
+  let initialState={
+    activeThreadId :'ajsdhajs',
+    threads:[
+    {
+        id:"ajsdhajs",
+        name:"Omer Sayem",
+        messages:[{
+
+        id:"hashbdsa",
+        time:'January 6th 2019, 1:54:13 am',
+        message:"Hey whatsUP !"
+
+        }]
+        
+
+    },
+    {
+        id:"uyuhajfkndkj",
+        name:"Ehtesham SIr",
+        messages:[]
+    }
+
+    ]
+}
   
   
   const redux  = { createStore , reducer , initialState} ;

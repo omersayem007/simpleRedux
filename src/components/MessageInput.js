@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+const uuidv1 = require('uuid/v1');
+var moment = require('moment');
 
 
 
@@ -21,8 +23,13 @@ class MessageInput extends Component {
     handleSubmit = () =>{
         const store = this.props.store;
         store.dispatch({
+
             type:'AddMessage',
+            id:uuidv1(),
+            time:moment().format('MMMM Do YYYY, h:mm:ss a'),
             message:this.state.message
+            
+
         });
         this.setState({message:''})
     }
