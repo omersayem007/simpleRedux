@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React  from 'react';
 
 
 
 class FlavorForm extends React.Component {
     constructor(props) {
+
       super(props);
-      this.state = {value: 'coconut'};
-  
-      
+      this.state = {value: ''};
     }
   
     handleChange= (event) => {
@@ -15,15 +14,20 @@ class FlavorForm extends React.Component {
     }
   
     handleSubmit = (event) => {
-      alert('Your favorite flavor is: ' + this.state.value);
       event.preventDefault();
+      const store = this.props.store;
+      store.dispatch({
+        type:"OpenThread",
+        id:this.state.value
+      })
+      
     }
   
     render() {
 
 
         const options = this.props.tabInfos.map((t)=>(
-            <option value={t.name}>{t.name}</option>
+            <option value={t.id}>{t.name}</option>
         ))
       return (
         <form onSubmit={this.handleSubmit}>

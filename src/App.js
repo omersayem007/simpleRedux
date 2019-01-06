@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MessagView from './components/MessageView';
-import MessageInput from './components/MessageInput';
 import ThreadSelect from './components/ThreadSelect';
 import Redux from './redux/Redux';
 const Store = Redux.createStore(Redux.reducer,Redux.initialState);
@@ -20,21 +19,22 @@ class App extends Component {
     const tabs = threads.map((t)=> (
     {
       active: t.id === activeThreadId,
-      name:t.name
-    }) );
-   // console.log(activeThreads)
+      name:t.name,
+      id:t.id
+    }) 
+    );
+   console.log(activeThreads)
     //console.log(state);
     //console.log(activeThreadId)
     return (
       <div className="App">
       <ThreadSelect
+       store={Store}
       tabInfos = {tabs}
       />
         <MessagView
+        activeThreadId={activeThreadId}
         messages={activeThreads[0].messages}
-        store={Store}
-        />
-        <MessageInput
         store={Store}
         />
         

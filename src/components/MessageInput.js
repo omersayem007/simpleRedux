@@ -25,6 +25,7 @@ class MessageInput extends Component {
         store.dispatch({
 
             type:'AddMessage',
+            activeId:this.props.activeThreadId,
             id:uuidv1(),
             time:moment().format('MMMM Do YYYY, h:mm:ss a'),
             message:this.state.message

@@ -1,4 +1,5 @@
 import React from 'react';
+import MessageInput from './MessageInput';
 
 
 class MessageView extends React.Component {
@@ -13,13 +14,12 @@ class MessageView extends React.Component {
 
   render() {
       const messages = this.props.messages.map((message,index)=>(
-          <div key={message.id}>
+          <div key={message.id} style={{border:'1px solid red'}}>
           <p> 
-          {message.text}
-          <span>@{message.time}</span>
+          {message.message}
+          </p>
+          <span>@{message.time}</span><br/>
           <button onClick={() =>this.handledelete(message.id)}>Delete</button>
-           </p>
-          
           </div>
       ));
     return (
@@ -27,6 +27,10 @@ class MessageView extends React.Component {
 
           <h1>MessageView</h1>
           {messages}
+          <MessageInput
+        store={this.props.store}
+        activeThreadId ={this.props.activeThreadId}
+        />
         
        </div>
     );
