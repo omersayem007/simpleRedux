@@ -3,8 +3,8 @@ import messagesReducer from './Message';
 
 function threadsReducer(state, action) {
     switch (action.type) {
-      case 'AddMessage':
-      case 'DeleteMessage': {
+      case 'ADD_MESSAGE':
+      case 'DELETE_MESSAGE': {
         const threadIndex = findThreadIndex(state, action);
   
         const oldThread = state[threadIndex];

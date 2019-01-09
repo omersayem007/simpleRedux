@@ -1,35 +1,20 @@
 import React from 'react';
 import Thread from './Thread';
-const uuidv1 = require('uuid/v1');
-var moment = require('moment');
+import addMessage from '../../redux/actions/message/Add';
+import deleteMessage from '../../redux/actions/message/Delete';
 
 
 class ThreadDisplay extends React.Component {
 
   
   onMessageSubmit = (text) =>{
-    
-    const store = this.props.store;
-    store.dispatch({
-
-      type:'AddMessage',
-      activeId:this.props.activeThreadId,
-      id:uuidv1(),
-      time:moment().format('MMMM Do YYYY, h:mm:ss a'),
-      message:text    
-
-  });
-
+    const {store,activeThreadId} = this.props ; 
+    store.dispatch(addMessage(text,activeThreadId));
   }
 
   onMessageClick = (id) =>{
-
     const store = this.props.store;
-        store.dispatch({
-            type:"DeleteMessage",
-            id
-        })
-
+        store.dispatch(deleteMessage(id));
   }
     
   

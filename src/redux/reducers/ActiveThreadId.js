@@ -1,5 +1,5 @@
   function activeThreadIdReducer(state,action){
-    if(action.type === "OpenThread"){
+    if(action.type === "OPEN_THREAD"){
      return action.id;
    }
    else{

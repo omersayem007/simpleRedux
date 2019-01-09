@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ThreadSelect from './components/ThreadSelect';
-import ThreadDisplay from './components/ThreadDisplay';
-import Redux from './redux/Redux';
+import ThreadSelect from './components/container/ThreadSelect';
+import ThreadDisplay from './components/container/ThreadDisplay';
+import Redux from './redux/main';
 const Store = Redux.createStore(Redux.reducer,Redux.initialState);
 
 class App extends Component {

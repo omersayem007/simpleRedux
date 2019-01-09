@@ -1,5 +1,6 @@
 import React  from 'react';
 import Select from '../ui/Select';
+import switchTab from '../../redux/actions/switchTab/switch';
 
 
 
@@ -9,10 +10,7 @@ class FlavorForm extends React.Component {
     handleSubmit = (id) => {
       
       const store = this.props.store;
-      store.dispatch({
-        type:"OpenThread",
-        id
-      })
+      store.dispatch(switchTab(id));
       
     }
   
