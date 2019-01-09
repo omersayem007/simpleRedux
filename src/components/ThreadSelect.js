@@ -1,43 +1,28 @@
 import React  from 'react';
+import Select from '../ui/Select';
 
 
 
 class FlavorForm extends React.Component {
-    constructor(props) {
 
-      super(props);
-      this.state = {value: ''};
-    }
   
-    handleChange= (event) => {
-      this.setState({value: event.target.value});
-    }
-  
-    handleSubmit = (event) => {
-      event.preventDefault();
+    handleChange= (id) => {
       const store = this.props.store;
       store.dispatch({
         type:"OpenThread",
-        id:this.state.value
+        id:id
       })
-      
     }
   
     render() {
 
-
-        const options = this.props.tabInfos.map((t)=>(
-            <option value={t.id}>{t.name}</option>
-        ))
       return (
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            <select value={this.state.value} onChange={this.handleChange}>
-              {options}
-            </select>
-          </label>
-          <input type="submit" value="select" />
-        </form>
+
+        <Select
+        tabInfos={this.props.tabInfos}
+        handleChange={this.handleChange}
+        />
+        
       );
     }
   }

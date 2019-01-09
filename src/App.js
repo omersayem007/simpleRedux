@@ -23,7 +23,7 @@ class App extends Component {
       id:t.id
     }) 
     );
-   console.log(activeThreads)
+   //console.log(activeThreads)
     //console.log(state);
     //console.log(activeThreadId)
     return (
