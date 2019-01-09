@@ -1,7 +1,25 @@
 import findThreadIndex from './FindIndex';
 import messagesReducer from './Message';
 
-function threadsReducer(state, action) {
+function threadsReducer(state=[
+  {
+      id:"ajsdhajs",
+      name:"Omer Sayem",
+      messages:[{
+
+      id:"hashbdsa",
+      time:'January 6th 2019, 1:54:13 am',
+      message:"Hey whatsUP !"
+
+      }]
+
+  },
+  {
+      id:"uyuhajfkndkj",
+      name:"Ehtesham SIr",
+      messages:[]
+  }
+  ], action) {
     switch (action.type) {
       case 'ADD_MESSAGE':
       case 'DELETE_MESSAGE': {

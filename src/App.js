@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import ThreadSelect from './components/container/ThreadSelect';
 import ThreadDisplay from './components/container/ThreadDisplay';
 import Redux from './redux/main';
-const Store = Redux.createStore(Redux.reducer,Redux.initialState);
+import {Provider}  from 'react-redux';
+//import {applyMiddleware} from 'redux'
+import fetchUser from './redux/index';
+//import thunk from 'redux-thunk';
+const Store = Redux.createStore(Redux.reducer);
+Store.dispatch(fetchUser());
+
 
 class App extends Component {
 
@@ -15,6 +21,9 @@ class App extends Component {
     const threads =state.threads;
     const activeThreadId = state.activeThreadId ;
     const activeThreads = state.threads.filter( (thread) => thread.id === activeThreadId );
+    const users = state.users;
+
+    console.log(users);
 
     const tabs = threads.map((t)=> (
     {
@@ -44,4 +53,11 @@ class App extends Component {
   }
 }
 
-export default App;
+
+const wrapApp = () =>(
+  <Provider store={Store}>
+    <App/>
+  </Provider>
+)
+
+export default wrapApp;

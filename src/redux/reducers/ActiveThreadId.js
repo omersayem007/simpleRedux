@@ -1,4 +1,4 @@
-  function activeThreadIdReducer(state,action){
+  function activeThreadIdReducer(state = 'ajsdhajs',action){
     if(action.type === "OPEN_THREAD"){
      return action.id;
    }
