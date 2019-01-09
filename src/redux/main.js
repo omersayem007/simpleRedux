@@ -1,12 +1,14 @@
 import {createStore,combineReducers} from 'redux';
 import activeThreadIdReducer from './reducers/ActiveThreadId';
-import threadsReducer from './reducers/Threads';;
+import threadsReducer from './reducers/Threads';
+import fetchUser from './reducers/FetchUser';
 
 
 
 const reducer = combineReducers({
   activeThreadId: activeThreadIdReducer,
   threads:threadsReducer,
+  users:fetchUser
 });
 
   
