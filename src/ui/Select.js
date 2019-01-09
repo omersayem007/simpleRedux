@@ -1,23 +1,15 @@
-import React from 'react';
+import React  from 'react';
 
 
+const Select = (props) =>(
+  <div>
+    {
+      props.tabInfos.map((t)=>(
+        <button onClick={()=>props.handleSubmit(t.id)} key={t.id}>{t.name}</button>
+      ))
+    }
+  </div>
 
-const tabs = (props) =>(
-  <form >
-          <label>
-          
-            {
-            props.tabInfos.map((t)=>(
-              <select  onChange={props.handleChange(t.id)}>
-                <option key={t.id} >{t.name}</option>
-                </select>
-            ))
-
-            }
-            
-          </label>
-        </form>
 );
 
-
-export default tabs;
+  export default Select;

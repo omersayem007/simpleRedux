@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import MessagView from './components/MessageView';
 import ThreadSelect from './components/ThreadSelect';
+import ThreadDisplay from './components/ThreadDisplay';
 import Redux from './redux/Redux';
 const Store = Redux.createStore(Redux.reducer,Redux.initialState);
 
@@ -32,7 +32,8 @@ class App extends Component {
        store={Store}
       tabInfos = {tabs}
       />
-        <MessagView
+      
+        <ThreadDisplay
         activeThreadId={activeThreadId}
         messages={activeThreads[0].messages}
         store={Store}

@@ -4,23 +4,24 @@ import Select from '../ui/Select';
 
 
 class FlavorForm extends React.Component {
-
   
-    handleChange= (id) => {
+  
+    handleSubmit = (id) => {
+      
       const store = this.props.store;
       store.dispatch({
         type:"OpenThread",
-        id:id
+        id
       })
+      
     }
   
     render() {
 
       return (
-
         <Select
         tabInfos={this.props.tabInfos}
-        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
         />
         
       );

@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-const uuidv1 = require('uuid/v1');
-var moment = require('moment');
 
 
 
-class MessageInput extends Component {
+class TextFieldSubmit extends Component {
 
     constructor(props){
         super(props)
@@ -21,17 +19,7 @@ class MessageInput extends Component {
     }
     
     handleSubmit = () =>{
-        const store = this.props.store;
-        store.dispatch({
-
-            type:'AddMessage',
-            activeId:this.props.activeThreadId,
-            id:uuidv1(),
-            time:moment().format('MMMM Do YYYY, h:mm:ss a'),
-            message:this.state.message
-            
-
-        });
+        this.props.onSubmit(this.state.message)
         this.setState({message:''})
     }
 
@@ -48,4 +36,4 @@ class MessageInput extends Component {
 }
 
 
-export default MessageInput;
+export default TextFieldSubmit;
